@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hustle Points - Rewards Program</title>
+    <link rel="icon" href="img/logo2.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 5px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #f10606;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background-image: url('/Img/take3.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .earn-redeem {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        }
+
+        .earn, .redeem {
+            flex-basis: 48%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-right: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .earn:hover, .redeem:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+        }
+
+        .earn h2, .redeem h2 {
+            color: #240499;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .earn img, .redeem img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            flex-basis: 30%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-right: 40px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+        }
+
+        .feature img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .feature h3 {
+            color: #240499;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex-basis: 30%;
+            margin-bottom: 20px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+        
+    .about-hero {
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 60px 0;
+        
+    }
+
+    .about-hero h1 {
+        font-size: 48px;
+        color: #240499;
+    }
+
+    .about-container h2 {
+        text-align: center;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .service-box {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border-radius: 10px;
+        
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s;
+    }
+
+    .service-box h3 {
+        color: #240499;
+        text-align: center;
+    }
+
+    .service-box i {
+        color: #240499;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .service-box:hover {
+
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .contact-container {
+        
+        display: flex;
+        gap: 40px;
+    }
+
+    .form-column h2 {
+        text-align: center;
+        color: #240499;
+    }
+
+    .map-column, .form-column {
+        flex: 1;
+    }
+
+    #scrollToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #c00303;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+    }
+
+    #contactForm input, #contactForm textarea {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    #contactForm button {
+        background-color: #4a4a4a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+    .earn-redeem, .features {
+        flex-direction: column;
+    }
+    .earn, .redeem, .feature {
+        margin-bottom: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="Img/logo2.png" alt="Hustle Points">
+                    <span>Hustle Points</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <button id="scrollToTop">↑</button>
+
+    <div id="content">
+        <!-- Content will be loaded here -->
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hustle Points</h3>
+                    <p>Empowering customers and businesses through innovative reward solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>Customer Rewards Program</li>
+                        <li>Redeem and Save</li>
+                        <li>Share With Those Who Matter</li>
+                        <li>Earn on Every Purchase</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: pitagitau@yahoo.com</p>
+                    <p>Phone: +2547 483 444 63</p>
+                    <p>Location: Ngong Hills Hotel, Ngong Road</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Hustle Points. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function loadHome() {
+            $("#content").html(`
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1>Welcome to Hustle Points</h1>
+                        <p>Earn and redeem points with our innovative rewards program!</p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="earn-redeem">
+                        <div class="earn">
+                            <h2>How to Earn Points</h2>
+                            <img src="/Img/earnp.jpg" alt="Earn Points">
+                            <div class="earn-content">
+                                <p>To earn points and maximize your rewards, simply make purchases at any of our participating retailers, with each transaction contributing to your points balance. You can also accumulate points effortlessly by using our convenient USSD code for transactions through your mobile phone. Additionally, earn bonus points by inviting friends and family to join our Rewards Program, and receive extra points when they sign up and make their first purchase. Enjoy the benefits and watch your points grow!</p>
+                            </div>
+                        </div>
+                        <div class="redeem">
+                            <h2>How to Redeem Points</h2>
+                            <img src="/Img/reedemp.jpg" alt="Redeem Points">
+                            <div class="redeem-content">
+                                <p>Redeeming your points is a straightforward process designed for your convenience. Use our USSD code to check your points balance and browse our extensive rewards catalog for items or discounts that suit your preferences. Our catalog offers a wide range of options, from grocery discounts to exclusive products. Redeem your points directly through our USSD code, transferring them to your bank account or applying them to your next purchase.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <div class="feature">
+                            <img src="/Img/best1.jpg" alt="Earn Everywhere">
+                            <h3>Earn on Every Purchase</h3>
+                            <p>Join our Rewards Program today to start earning and redeeming points for incredible rewards. Experience the benefits and enjoy a more rewarding shopping journey with us.</p>
+                        </div>
+                        <div class="feature">
+                            <img src="/Img/two.jpeg" alt="Redeem and Save">
+                            <h3>Redeem and Save</h3>
+                            <p>Join our Rewards Program to start redeeming points for incredible savings. Turn your everyday shopping into valuable rewards by checking your points balance and exploring our extensive rewards catalog. Redeem your points for discounts, free products, and exclusive offers.</p>
+                        </div>
+                        <div class="feature">
+                            <img src="/Img/best2.jpg" alt="Share With Those Who Matter">
+                            <h3>Share With Those Who Matter</h3>
+                            <p>Join our Rewards Program and invite your family and friends to enjoy the benefits. By referring loved ones, you help them save while earning bonus points for yourself. Share the rewards and savings by spreading the word, and watch your points grow with each successful referral. Enjoy amazing discounts, free products, and exclusive offers together!</p>
+                        </div>
+                    </div>
+                </div>
+            `);
+        }
+        
+        function loadAbout() {
+            $("#content").html(`
+                <div class="hero about-hero">
+                    <h1>About Us</h1>
+                </div>
+                <div class="about-container">
+                    <h2>Our Services</h2>
+                    
+                    <div class="services-grid">
+                        <div class="service-box">
+                            <i class="fa fa-credit-card-alt fa-3x" aria-hidden="true"></i>
+                            <h3>Customer Rewards Program</h3>
+                            <p>Join our Rewards Program and invite your family and close friends to experience the incredible benefits. By referring your loved ones, you not only help them save but also earn bonus points for yourself. Share the joy of rewards and savings by spreading the word about our program. Watch as your points accumulate with each successful referral, bringing you and your friends closer to amazing discounts, free products, and exclusive offers.</p>
+                        </div>
+                        <div class="service-box">
+                            <i class="fa fa-shopping-basket fa-3x" aria-hidden="true"></i>
+                            <h3>Redeem and Save</h3>
+                            <p>Join our Rewards Program to start redeeming your points for incredible savings. Don't miss out on the opportunity to turn your everyday shopping into valuable rewards. Check your points balance, explore our extensive rewards catalog, and redeem your points for discounts, free products, and exclusive offers.</p>
+                        </div>
+                        <div class="service-box">
+                            <i class="fa fa-recycle fa-3x" aria-hidden="true"></i>
+                            <h3>Share With Those Who Matter</h3>
+                            <p>Share the joy of rewards and savings by spreading the word about our program. Watch as your points accumulate with each successful referral, bringing you and your friends closer to amazing discounts, free products, and exclusive offers.</p>
+                        </div>
+                        <div class="service-box">
+                            <i class="fa fa-cart-arrow-down fa-3x" aria-hidden="true"></i>
+                            <h3>Earn on Every Purchase</h3>
+                            <p>Join our Rewards Program today to start earning and redeeming points for incredible rewards. Experience the benefits and enjoy a more rewarding shopping journey with us.</p>
+                        </div>
+                    </div>
+                </div>
+            `);
+        }
+
+        function loadContact() {
+            $("#content").html(`
+                <div class="container contact-container">
+                    <div class="map-column">
+                        
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.165983993202!2d36.7916903!3d-1.2999255!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f109a1cc04435%3A0xccef7579bdc325b!2sNgong%20Hills%20Hotel!5e0!3m2!1sen!2ske!4v1720123325091!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    
+                    <div class="form-column">
+                        <h2>Leave us a message</h2>
+                        <form id="contactForm">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="email" placeholder="Email Address" required>
+                            <input type="text" placeholder="Subject">
+                            <textarea placeholder="Comment or Message" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            `);
+        }
+
+        // Initial load
+        loadHome();
+
+        // Navigation
+        $("nav a").on("click", function(e) {
+            e.preventDefault();
+            var page = $(this).attr("href").substring(1);
+            switch(page) {
+                case "home":
+                    loadHome();
+                    break;
+                case "about":
+                    loadAbout();
+                    break;
+                case "contact":
+                    loadContact();
+                    break;
+            }
+        });
+
+        // Contact form submission
+        $(document).on("submit", "#contactForm", function(e) {
+            e.preventDefault();
+            alert("Thank you for your message. We'll get back to you soon!");
+        });
+
+        //Scroll-up Button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#scrollToTop').fadeIn();
+            } else {
+                $('#scrollToTop').fadeOut();
+            }
+        });
+
+        $('#scrollToTop').click(function() {
+            $('html, body').animate({scrollTop : 0}, 800);
+            return false;
+        });
+    </script>
+</body>
+</html>
