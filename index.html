@@ -224,10 +224,17 @@
             color: var(--primary-color);
         }
 
+        .about-container h2 {
+            text-align: center;
+            color: #240499;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 40px;
+            margin: 0 auto;
+            gap: 2rem;
         }
 
         .service-box {
@@ -257,12 +264,32 @@
 
         .contact-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 2rem;
         }
 
         .map-column, .form-column {
-            flex: 1 1 300px;
+            width: 100%;
+        }
+
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .form-column h2 {
+            color: #240499;
+            text-align: center;
         }
 
         #scrollToTop {
@@ -297,7 +324,15 @@
             cursor: pointer;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
+            .contact-container {
+                flex-direction: row;
+            }
+
+            .contact-container {
+                flex-direction: row;
+            }
+
             .header-content {
                 flex-direction: column;
                 align-items: flex-start;
@@ -314,6 +349,7 @@
             .earn-redeem, .features {
                 flex-direction: column;
             }
+            
         }
 
         @media (max-width: 480px) {
@@ -471,7 +507,7 @@
                 <div class="container contact-container">
                     <div class="map-column">
                         
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.165983993202!2d36.7916903!3d-1.2999255!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f109a1cc04435%3A0xccef7579bdc325b!2sNgong%20Hills%20Hotel!5e0!3m2!1sen!2ske!4v1720123325091!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.165983993202!2d36.7916903!3d-1.2999255!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f109a1cc04435%3A0xccef7579bdc325b!2sNgong%20Hills%20Hotel!5e0!3m2!1sen!2ske!4v1720123325091!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="0%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                     
                     <div class="form-column">
