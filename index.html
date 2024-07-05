@@ -9,57 +9,77 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        :root {
+            --primary-color: #240499;
+            --secondary-color: #f10606;
+            --background-color: #f0f0f0;
+            --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
         }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1rem;
         }
+
         header {
-            background-color: #333;
+            background-color: var(--text-color);
             color: white;
-            padding: 10px 0;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
             display: flex;
             align-items: center;
         }
 
         .logo img {
-            width: 60px;
-            height: 60px;
-            margin-right: 5px;
+            width: 3.75rem;
+            height: 3.75rem;
+            margin-right: 0.5rem;
         }
+
         nav ul {
             list-style-type: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
+
         nav ul li {
-            margin: 0 15px;
+            margin: 0 0.5rem;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
-            padding: 5px 10px;
+            padding: 0.5rem;
             transition: background-color 0.3s;
             position: relative;
         }
@@ -76,7 +96,7 @@
         }
 
         nav ul li a:hover {
-            background-color: #f10606;
+            background-color: var(--secondary-color);
         }
 
         nav ul li a:hover::after {
@@ -87,45 +107,46 @@
             background-image: url('/Img/take3.jpeg');
             background-size: cover;
             background-position: center;
-            height: 300px;
+            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 2rem;
         }
+
         .hero-content {
             background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
+            padding: 1rem;
             border-radius: 10px;
         }
 
         .earn-redeem {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .earn, .redeem {
-            flex-basis: 48%;
+            flex: 1 1 300px;
             background-color: white;
-            padding: 20px;
+            padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-right: 20px;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .earn:hover, .redeem:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .earn h2, .redeem h2 {
-            color: #240499;
+            color: var(--primary-color);
             text-align: center;
-            margin-top: 20px;
+            margin-top: 1rem;
         }
 
         .earn img, .redeem img {
@@ -137,23 +158,23 @@
 
         .features {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .feature {
-            flex-basis: 30%;
+            flex: 1 1 300px;
             background-color: white;
-            padding: 20px;
+            padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-right: 40px;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .feature:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .feature img {
@@ -164,137 +185,150 @@
         }
 
         .feature h3 {
-            color: #240499;
-            margin-top: 20px;
+            color: var(--primary-color);
+            margin-top: 1rem;
         }
+
         footer {
-            background-color: #333;
+            background-color: var(--text-color);
             color: white;
-            padding: 40px 0 20px;
+            padding: 2rem 0 1rem;
         }
+
         .footer-content {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
         }
+
         .footer-section {
-            flex-basis: 30%;
-            margin-bottom: 20px;
+            flex: 1 1 200px;
         }
+
         .copyright {
             text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 1rem;
+            padding-top: 1rem;
             border-top: 1px solid #555;
         }
-        
-    .about-hero {
-        background-color: #f0f0f0;
-        text-align: center;
-        padding: 60px 0;
-        
-    }
 
-    .about-hero h1 {
-        font-size: 48px;
-        color: #240499;
-    }
+        .about-hero {
+            background-color: var(--background-color);
+            text-align: center;
+            padding: 3rem 0;
+        }
 
-    .about-container h2 {
-        text-align: center;
-    }
+        .about-hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
 
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
 
-    .service-box {
-        background-color: white;
-        padding: 20px;
-        margin-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-        border-radius: 10px;
-        
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s;
-    }
+        .service-box {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
 
-    .service-box h3 {
-        color: #240499;
-        text-align: center;
-    }
+        .service-box h3 {
+            color: var(--primary-color);
+            text-align: center;
+        }
 
-    .service-box i {
-        color: #240499;
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .service-box i {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .service-box:hover {
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
 
-    .contact-container {
-        
-        display: flex;
-        gap: 40px;
-    }
+        .map-column, .form-column {
+            flex: 1 1 300px;
+        }
 
-    .form-column h2 {
-        text-align: center;
-        color: #240499;
-    }
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
 
-    .map-column, .form-column {
-        flex: 1;
-    }
+        #contactForm input, #contactForm textarea {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
 
-    #scrollToTop {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #c00303;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-        cursor: pointer;
-        display: none;
-    }
+        #contactForm button {
+            background-color: var(--text-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    #contactForm input, #contactForm textarea {
-        width: 100%;
-        margin-bottom: 15px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    #contactForm button {
-        background-color: #4a4a4a;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+            nav ul {
+                margin-top: 1rem;
+            }
 
-    @media (max-width: 768px) {
-    .earn-redeem, .features {
-        flex-direction: column;
-    }
-    .earn, .redeem, .feature {
-        margin-bottom: 20px;
-    }
-}
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .earn-redeem, .features {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
