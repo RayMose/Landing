@@ -148,9 +148,9 @@
         }
 
         .earn-redeem {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
         }
 
         .earn, .redeem {
@@ -299,13 +299,13 @@
         }
 
         .contact-feature {
-            flex-basis: auto;
+            flex-basis: 22%;
             text-align: center;
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-right: 40px;
+            margin-right: 20px;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
@@ -408,14 +408,14 @@
                 flex-direction: column;
             }
 
-            .services-grid {
+            .services-grid, .contact-feature {
                 grid-template-columns: repeat(1, 1fr);
             }
             .earn, .redeem, .feature, .serive-box {
                 margin-bottom: 20px;
             }
 
-            .map-column, .form-column {
+            .map-column, .form-column, .contact-feature {
                 flex: 1 1 calc(50% - 0.5rem);
             }
 
@@ -588,10 +588,13 @@
 
         function loadContact() {
             $("#content").html(`
+                <div class="hero about-hero">
+                    <h1>Contact Us</h1>
+                </div>
                 <div class="container contact-container">
                     <div class="contact-feature">
                         <i class="fa fa-map-marker fa-2x"></i>
-                        <p>VISIT HERE</p>
+                        <p>VISIT US HERE</p>
                         <p>Ngong Hills Hotel</p>
                     </div>
                     <div class="contact-feature">
